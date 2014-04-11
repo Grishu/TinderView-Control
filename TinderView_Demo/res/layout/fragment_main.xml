@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_selector"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/sp_color"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/sp_image"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight=".9"
+            android:background="@drawable/baby1"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/sp_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:gravity="center"
+            android:text="Hello World" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sp_linh"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_weight=".10"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:id="@+id/ll_clk_hrts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/sp_imageHeart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp"
+                android:src="@drawable/heart" />
+
+            <TextView
+                android:id="@+id/sp_hearts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sp_ll_like_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp" >
+
+            <ImageView
+                android:id="@+id/sp_imageLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:src="@drawable/ic_like" />
+
+            <TextView
+                android:id="@+id/sp_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="4"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
