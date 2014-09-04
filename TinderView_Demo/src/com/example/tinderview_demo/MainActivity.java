@@ -21,7 +21,7 @@ import android.widget.RelativeLayout;
 public class MainActivity extends Activity {
 	int windowwidth;
 	int screenCenter;
-	int x_cord, y_cord;
+	int x_cord, y_cord,x,y;
 	int Likes = 0;
 	RelativeLayout parentView;
 	float alphaValue = 0;
@@ -122,12 +122,20 @@ public class MainActivity extends Activity {
 					m_view.setY(y_cord - 150);
 					switch (event.getAction()) {
 					case MotionEvent.ACTION_DOWN:
+                                               x = event.getX();
+                                               y = event.getY();
+                                              Log.v("On touch",x + " " + y);
 						break;
 					case MotionEvent.ACTION_MOVE:
-						x_cord = (int) event.getRawX();
-						y_cord = (int) event.getRawY();
-						m_view.setX(x_cord - screenCenter + 40);
-						m_view.setY(y_cord - 150);
+                                             x_cord = event.getRawX(); //Updated for more smoother animation.
+                                             y_cord = event.getRawY();
+                                             m_view.setX(x_cord-x);
+                                             m_view.setY(y_cord-y);﻿
+
+						//x_cord = (int) event.getRawX();
+						//y_cord = (int) event.getRawY();
+						//m_view.setX(x_cord - screenCenter + 40);
+						//m_view.setY(y_cord - 150);
 						if (x_cord >= screenCenter) {
 							m_view.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
 							if (x_cord > (screenCenter + (screenCenter / 2))) {
