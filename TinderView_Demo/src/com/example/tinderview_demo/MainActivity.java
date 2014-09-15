@@ -21,7 +21,7 @@ import android.widget.RelativeLayout;
 public class MainActivity extends Activity {
 	int windowwidth;
 	int screenCenter;
-	int x_cord, y_cord,x,y;
+	int x_cord, y_cord, x, y;
 	int Likes = 0;
 	RelativeLayout parentView;
 	float alphaValue = 0;
@@ -39,8 +39,8 @@ public class MainActivity extends Activity {
 		parentView = (RelativeLayout) findViewById(R.id.layoutview);
 		windowwidth = getWindowManager().getDefaultDisplay().getWidth();
 		screenCenter = windowwidth / 2;
-		int[] myImageList = new int[] { R.drawable.cats, R.drawable.baby1,
-				R.drawable.sachin, R.drawable.cats, R.drawable.puppy };
+		int[] myImageList = new int[] { R.drawable.cats, R.drawable.baby1, R.drawable.sachin,
+				R.drawable.cats, R.drawable.puppy };
 
 		for (int i = 0; i < 5; i++) {
 			LayoutInflater inflate = (LayoutInflater) m_context
@@ -48,10 +48,8 @@ public class MainActivity extends Activity {
 
 			final View m_view = inflate.inflate(R.layout.custom_layout, null);
 			ImageView m_image = (ImageView) m_view.findViewById(R.id.sp_image);
-			LinearLayout m_topLayout = (LinearLayout) m_view
-					.findViewById(R.id.sp_color);
-			LinearLayout m_bottomLayout = (LinearLayout) m_view
-					.findViewById(R.id.sp_linh);
+			LinearLayout m_topLayout = (LinearLayout) m_view.findViewById(R.id.sp_color);
+			LinearLayout m_bottomLayout = (LinearLayout) m_view.findViewById(R.id.sp_linh);
 			// final RelativeLayout myRelView = new RelativeLayout(this);
 			m_view.setLayoutParams(new LayoutParams((windowwidth - 80), 450));
 			m_view.setX(40);
@@ -81,8 +79,7 @@ public class MainActivity extends Activity {
 			// ADD dynamically like button on image.
 			final Button imageLike = new Button(m_context);
 			imageLike.setLayoutParams(new LayoutParams(100, 50));
-			imageLike.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.like));
+			imageLike.setBackgroundDrawable(getResources().getDrawable(R.drawable.like));
 			imageLike.setX(20);
 			imageLike.setY(-250);
 			imageLike.setAlpha(alphaValue);
@@ -91,8 +88,7 @@ public class MainActivity extends Activity {
 			// ADD dynamically dislike button on image.
 			final Button imagePass = new Button(m_context);
 			imagePass.setLayoutParams(new LayoutParams(100, 50));
-			imagePass.setBackgroundDrawable(getResources().getDrawable(
-					R.drawable.dislike));
+			imagePass.setBackgroundDrawable(getResources().getDrawable(R.drawable.dislike));
 
 			imagePass.setX(260);
 			imagePass.setY(-300);
@@ -122,20 +118,20 @@ public class MainActivity extends Activity {
 					m_view.setY(y_cord - 150);
 					switch (event.getAction()) {
 					case MotionEvent.ACTION_DOWN:
-                                               x = event.getX();
-                                               y = event.getY();
-                                              Log.v("On touch",x + " " + y);
+						x = (int) event.getX();
+						y = (int) event.getY();
+						Log.v("On touch", x + " " + y);
 						break;
 					case MotionEvent.ACTION_MOVE:
-                                             x_cord = event.getRawX(); //Updated for more smoother animation.
-                                             y_cord = event.getRawY();
-                                             m_view.setX(x_cord-x);
-                                             m_view.setY(y_cord-y);﻿
-
-						//x_cord = (int) event.getRawX();
-						//y_cord = (int) event.getRawY();
-						//m_view.setX(x_cord - screenCenter + 40);
-						//m_view.setY(y_cord - 150);
+						x_cord = (int) event.getRawX(); // Updated for more
+														// smoother animation.
+						y_cord = (int) event.getRawY();
+						m_view.setX(x_cord - x);
+						m_view.setY(y_cord - y);
+						// m_view.setY(y_cord-y);﻿
+						// y_cord = (int) event.getRawY();
+						// m_view.setX(x_cord - screenCenter + 40);
+						// m_view.setY(y_cord - 150);
 						if (x_cord >= screenCenter) {
 							m_view.setRotation((float) ((x_cord - screenCenter) * (Math.PI / 32)));
 							if (x_cord > (screenCenter + (screenCenter / 2))) {
